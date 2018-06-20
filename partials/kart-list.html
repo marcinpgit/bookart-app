@@ -1,3 +1,23 @@
-<div>
-    This is Kart view.
+<div id="bookListWrapper">
+    <p>Please click on buy button to buy the book.</p>
+    <ul class="list-unstyled">
+        <li 
+            class="book" 
+            style="background: white url(imgs/{{ book.imgUrl }}) no-repeat"
+            ng-repeat="book in kart"
+            >   
+            <div class="book-details clearfix">
+                <h3>{{ book.name }}</h3>
+                <p>Price: {{ book.price }} PLN</p>
+                <ul class="list-unstyled list-inline">
+                    <li>Rating: {{ book.rating }}</li>
+                    <li>Binding: {{ book.binding }}</li>
+                    <li>Publisher: {{ book.publisher }}</li>
+                    <li>Release Date: {{ book.releaseDate }}</li>
+                </ul>
+                <p>{{ book.details }}</p>
+                <button class="btn btn-info pull-right" ng-click="addToKart(book)">Buy</button>
+            </div>
+        </li>
+    </ul>
 </div>
