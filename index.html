@@ -12,13 +12,44 @@
 </head>
 <body>
 
-    <div id="header-wrapper" ng-controller="HeaderCtrl">
+    <div id="headerWrapper" ng-controller="HeaderCtrl">
         <span class="logo pull-left">{{ appDetails.title }}</span>
         <span class="tagline pull-left">{{ appDetails.tagline }}</span>
         <div class="nav-wrapper pull-left">
             <ul class="nav nav-pills">
                 <li class="active"><a href="#">Books</a></li>
                 <li><a href="#">Kart</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="bookListWrapper" ng-controller="BookListCtrl">
+        <form role="form">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search here...">
+            </div>
+        </form>
+        <div>
+            <ul class="list-unstyled">
+                <li 
+                    class="book" 
+                    style="background: white url(imgs/{{ book.imgUrl }}) no-repeat"
+                    ng-repeat="book in books"
+                    >   
+                    <div class="book-details clearfix">
+                        <h3>{{ book.name }}</h3>
+                        <p>{{ book.price }} PLN</p>
+                        <ul class="list-unstyled list-inline">
+                            <li>{{ book.rating }}</li>
+                            <li>{{ book.binding }}</li>
+                            <li>{{ book.publisher }}</li>
+                            <li>{{ book.release }}</li>
+                        </ul>
+                        <p>{{ book.details }}</p>
+                        <button class="btn btn-info pull-right" ng-click="addToKart(book)">Add to Kart</button>
+                    </div>
+                </li>
+
             </ul>
         </div>
     </div>
