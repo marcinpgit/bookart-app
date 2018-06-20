@@ -1,11 +1,12 @@
-var HeaderCtrl = function ($scope) {
-    $scope.appDetails = {
-        title: "BooKart",
-        tagline: "We have 1 million books for you"
-    };
-};
+var myApp = angular.module("myApp", []);
 
-var BookListCtrl = function ($scope) {
+myApp.controller("HeaderCtrl", function ($scope) {
+    $scope.appDetails = {};
+    $scope.appDetails.title = "BooKart";
+    $scope.appDetails.tagline = "We have 1 million books for you";
+    });
+
+myApp.controller("BookListCtrl", function ($scope) {
     $scope.books = [
         {
             imgUrl: "adultery1.jpg",
@@ -41,4 +42,4 @@ var BookListCtrl = function ($scope) {
     $scope.addToKart = function (book) {
         console.log("add to kart: ", book);
     }
-};
+});
