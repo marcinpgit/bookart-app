@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>How AngularJS works?</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+    <script src="app.js"></script>
 </head>
-<body ng-init="numOfBooks = 10">
-    
-    Number of Books: <input ng-model="numOfBooks"/>
-    <p>Welcome to BooKart, we have collection of {{ numOfBooks + ' Million' }} books.</p>
+<body>
+
+    <div id="header-wrapper" ng-controller="HeaderCtrl">
+        <span class="logo pull-left">{{ appDetails.title }}</span>
+        <span class="tagline pull-left">{{ appDetails.tagline }}</span>
+        <div class="nav-wrapper pull-left">
+            <ul class="nav nav-pills">
+                <li class="active"><a href="#">Books</a></li>
+                <li><a href="#">Kart</a></li>
+            </ul>
+        </div>
+    </div>
 
 </body>
 </html>
