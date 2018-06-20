@@ -1,4 +1,18 @@
-var myApp = angular.module("myApp", []);
+var myApp = angular.module("myApp", ["ngRoute"]);
+
+myApp.config(function ($routeProvider) {
+    $routeProvider
+        .when("/books", {
+            templateUrl: "partials/book-list.html",
+            controller: "BookListCtrl"
+        })
+        .when("/kart", {
+            templateUrl: "partials/kart-list.html"
+        })
+        .otherwise({
+            redirectTo: "/books"
+        })
+});
 
 myApp.controller("HeaderCtrl", function ($scope) {
     $scope.appDetails = {};
@@ -19,8 +33,8 @@ myApp.controller("BookListCtrl", function ($scope) {
             details: "Linda, in her thirties, begins to question the...."
         },
         {
-            imgUrl: "going-back.jpg",
-            name: "Going Back",
+            imgUrl: "dutch.jpg",
+            name: "Dutch",
             price: 300,
             rating: 5,
             binding: "Paperback",
@@ -29,8 +43,8 @@ myApp.controller("BookListCtrl", function ($scope) {
             details: "Alexandra, in her thirties, begins to question the...."
         },
         {
-            imgUrl: "something-stupid.jpg",
-            name: "Something Stupid",
+            imgUrl: "vegetarian.jpg",
+            name: "The Vegetarian",
             price: 199,
             rating: 3,
             binding: "Paperback",
